@@ -19,6 +19,8 @@ release/v2.1.6/css/unicons.css">
     <!-- pour swiper js-->
 
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+   <!-- Boxicons Link -->
+   <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 
     <link rel="stylesheet" href="./css/style.css">
 </head>
@@ -62,11 +64,89 @@ release/v2.1.6/css/unicons.css">
     <!-- BEGIN HEADER -->
 
 
+    <section class="commentaires" >
+        <h2>
+            Nos Projets en Vidéo
+        </h2>
+
+        <div class="cadre">
+
+            <div class="main-video ">
+                <video src="videos/1.mp4" autoplay muted controls></video>
+<!--                 <i class='bx bx-x close'></i>
+ -->                <i class="uil uil-times-circle close"></i>
+
+            </div>
+            <div class="videos ">
+              <video src="videos/2.mp4"></video>
+              <i class='bx bx-play-circle'></i>
+            </div>
+            <div class="videos ">
+              <video src="videos/3.mp4"></video>
+              <i class='bx bx-play-circle'></i>
+            </div>
+            <div class="videos ">
+              <video src="videos/4.mp4"></video>
+              <i class='bx bx-play-circle'></i>
+            </div>
+            <div class="videos ">
+              <video src="videos/1.mp4"></video>
+              <i class='bx bx-play-circle'></i>
+            </div>
+
+            <div class="videos ">
+                <video src="videos/3.mp4"></video>
+                <i class='bx bx-play-circle'></i>
+              </div>
+
+              <div class="videos ">
+                <video src="videos/4.mp4"></video>
+                <i class='bx bx-play-circle'></i>
+              </div>
+              <div class="videos ">
+                <video src="videos/1.mp4"></video>
+                <i class='bx bx-play-circle'></i>
+              </div>
+
+              <div class="videos ">
+                <video src="videos/3.mp4"></video>
+                <i class='bx bx-play-circle'></i>
+              </div>
+
+              <div class="videos ">
+                <video src="videos/4.mp4"></video>
+                <i class='bx bx-play-circle'></i>
+              </div>
+              <div class="videos ">
+                <video src="videos/1.mp4"></video>
+                <i class='bx bx-play-circle'></i>
+              </div>
+
+              <div class="videos ">
+                <video src="videos/3.mp4"></video>
+                <i class='bx bx-play-circle'></i>
+              </div>
+              
+              
+
+        </div>
+
+
+         
+       
+            
+      
+            
+        
+
+    </section>
+
+
 
     <!-- BEGIN  COURS -->
     <section class="cours">
         <h2>
-            Nos Projets
+            Nos Projets en image
         </h2>
         <div class="container cours__container">
 
@@ -244,6 +324,28 @@ release/v2.1.6/css/unicons.css">
 
 
 
+    <script>
+        const section = document.querySelector("section"),
+            mainVideo = document.querySelector(".main-video video"),
+            videos = document.querySelectorAll(".videos"),
+            close = document.querySelector(".close");
+
+        for (var i = 0; i < videos.length; i++) {
+            videos[i].addEventListener("click", (e) => {
+                const target = e.target;
+                section.classList.add("active");
+                target.classList.add("active");
+                let src = document.querySelector(".videos.active video").src;
+                mainVideo.src = src;
+
+                close.addEventListener("click", () => {
+                    section.classList.remove("active");
+                    target.classList.remove("active");
+                    mainVideo.src = "";
+                });
+            });
+        };
+    </script>
 
 </body>
 
