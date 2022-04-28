@@ -20,6 +20,11 @@ release/v2.1.6/css/unicons.css">
 
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
 
+    
+    <!-- Boxicons Link -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
+
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
@@ -161,19 +166,23 @@ release/v2.1.6/css/unicons.css">
 
     <!-- END Catégorie -->
 
+
+    
+
     <!-- BEGIN  COURS -->
     <section class="cours">
         <h2>
-            Nos Projets
+            Nos Projets en image
         </h2>
         <div class="container cours__container">
             <arttile class="cour">
-                <video controls="controls" poster="./image/3.jpg">
-                    <source src="./video/123.mp4"> il a un souci
+                <video width="100%" controls="controls" poster="./image/3.jpg">
+                    <source width="30%" src="./video/123.mp4"> il a un souci
                 </video>
                 <div class="cour__info">
                     <h4> Projet 1</h4>
-                    <p>Lorem10
+                    <p>
+                        Lorem10
                     </p>
                     <a href="cours.html" class="btn btn-primary">Voir Plus</a>
                 </div>
@@ -561,7 +570,34 @@ release/v2.1.6/css/unicons.css">
                 }
             }
         });
+
+
+        
     </script>
+
+
+<script>
+    const section = document.querySelector("section"),
+        mainVideo = document.querySelector(".main-video video"),
+        videos = document.querySelectorAll(".videos"),
+        close = document.querySelector(".close");
+
+    for (var i = 0; i < videos.length; i++) {
+        videos[i].addEventListener("click", (e) => {
+            const target = e.target;
+            section.classList.add("active");
+            target.classList.add("active");
+            let src = document.querySelector(".videos.active video").src;
+            mainVideo.src = src;
+
+            close.addEventListener("click", () => {
+                section.classList.remove("active");
+                target.classList.remove("active");
+                mainVideo.src = "";
+            });
+        });
+    };
+</script>
 
 
 </body>
